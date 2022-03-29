@@ -39,7 +39,7 @@ public class SuburbPostcodeServiceImpl implements SuburbPostcodeService {
         log.debug("About to fetch all suburb postcodes in range {}..{}", from, to);
 
         List<SuburbPostcode> suburbPostcodes =
-                suburbPostcodeRepository.findAllByPostcodeBetween(from, to);
+                suburbPostcodeRepository.findAllByPostcodeBetweenOrderByLocalityAsc(from, to);
         List<SuburbPostcodeDto> suburbPostcodeDtos = suburbPostcodes.stream().map(suburbPostcodeMapper::map).toList();
         return new SuburbPostcodePage(suburbPostcodeDtos, countCharacters(suburbPostcodeDtos));
     }

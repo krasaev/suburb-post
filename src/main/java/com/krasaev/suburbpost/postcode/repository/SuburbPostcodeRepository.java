@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface SuburbPostcodeRepository extends PagingAndSortingRepository<SuburbPostcode, String> {
 
-    List<SuburbPostcode> findAllByPostcodeBetween(String from, String to);
+    List<SuburbPostcode> findAllByPostcodeBetweenOrderByLocalityAsc(String from, String to);
 }
